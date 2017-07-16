@@ -1,0 +1,48 @@
+@keyframes loader {
+    10% { transform: scaleY(1) }
+    50% { transform: scaleY(1.5) }
+    90% { transform: scaleY(1) }
+}
+    
+.loader {
+    position: absolute;
+    display: flex;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    opacity: 0;
+    transition: opacity .5s ease-in;
+    justify-content: center;
+    &.visible {
+        opacity: 0.9;
+    }
+}
+.content {
+    display: flex;
+    align-self: center;
+    .title {
+        font-size: 26px;
+        text-shadow: 1px 4px 7px rgba(0, 0, 0, 0.5);
+    }
+    .animation {
+        margin: 0 10px;
+        width: 100%;
+        span {
+            width: 20px;
+            height: 100%;
+            border: 1px solid #52b3e0;
+            display: inline-block;
+            background-color: #76cbe9;
+            transform: scaleY(1);
+            animation-name: loader;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in;
+            animation-duration: 1s;
+            margin: 0 2px;
+        }
+        .second { animation-delay: .3s; }
+        .third { animation-delay: .6s; }
+    }
+}

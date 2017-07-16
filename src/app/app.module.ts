@@ -1,16 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+import * as reducers from './reducers';
 
+import TableService from './services/table';
 import { AppComponent } from './app.component';
+import { TableComponent, LoaderComponent, ColorComponent } from './components';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TableComponent,
+    LoaderComponent,
+    ColorComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    StoreModule.provideStore({
+      layout: reducers.layoutReducer,
+      table: reducers.tableReducer,
+    }),
   ],
-  providers: [],
+  providers: [TableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
