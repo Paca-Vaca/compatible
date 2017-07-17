@@ -23,7 +23,9 @@ import { TableComponent, LoaderComponent, ColorComponent } from './components';
       table: reducers.tableReducer,
     }),
   ],
-  providers: [TableService],
+  providers: [{
+    provide: TableService, useClass: TableService,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
